@@ -1,5 +1,5 @@
 import { motion } from "framer-motion"
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 
 export function Slider() {
     const mitarbeiterCollection = [{
@@ -19,6 +19,12 @@ export function Slider() {
     }]
 
     const [position, setPosition] = useState(1)
+    const [containerWidth, setContainerWidth] = useState(0)
+
+    const container = useRef()
+    useEffect(() => {
+        setContainerWidth(container.current.offsetWidth)
+    })
 
     function slideRight() {
         if (position < mitarbeiterCollection.length ) {
@@ -32,6 +38,7 @@ export function Slider() {
         }
     }
     console.log(position)
+    console.log(containerWidth)
     return(
         <div className="slider-container">
             <button className="slide-left" onClick={slideLeft}> left </button>
@@ -39,7 +46,10 @@ export function Slider() {
             <div className="slider">
                 {mitarbeiterCollection.map((mitarbeiter) => {
                     return (
-                        <motion.div key={mitarbeiter.id} className="slider-item">
+                        <motion.div 
+                        ref={container}
+                        key={mitarbeiter.id} 
+                        className="slider-item">
                             <div className="slider-image" style={{backgroundImage: `url(/images/${mitarbeiter.image}.png)`,}}></div>
                             <div className="slider-info">
                                 <h2>{mitarbeiter.name}</h2>
