@@ -1,5 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@200;300;400;900&display=swap');
+
 body {
   margin: 0;
+  font-family: Mulish, sans-serif;
 }
 
 .slider-container {
@@ -17,7 +20,7 @@ body {
   position: relative;
   height: 100%;
   overflow: hidden;
-  background-color: #eeeeee;
+  background-color: #f4f5f7;
 }
 
 .slider-item {
@@ -26,9 +29,8 @@ body {
   top: 0;
   bottom: 0;
   right: 0;
-  width: 100%;
+  width: 80%;
   display: flex;
-  justify-content: center;
   overflow: hidden;
 }
 
@@ -40,6 +42,19 @@ body {
 }
 
 .slider-info {
-  width: 50%;
-  height: 100%
+  width: 40%;
+  height: 100%;
+  padding: 40px;
+}
+
+.slider-info h2, h3, .location {
+  font-weight: 900;
+}
+
+.slider-info h2 {
+  font-size: 3.375em;
+}
+
+.slider-info h3 {
+  font-size: 1.5em;
 }

@@ -48,9 +48,9 @@ export function Slider() {
                     return (
                         <motion.div
                         animate={{
-                            left: (mitarbeiter.id - position) * (sliderWidth),
+                            left: (mitarbeiter.id - position) * (sliderWidth * .9),
                         }}
-                        transition={{type: "tween", duration: 2}}
+                        transition={{type: "tween", duration: .5}}
                         key={mitarbeiter.id} 
                         className="slider-item">
                             <div className="slider-image" style={{backgroundImage: `url(/images/${mitarbeiter.image}.png)`,}}></div>
@@ -58,7 +58,7 @@ export function Slider() {
                                 <h2>{mitarbeiter.name}</h2>
                                 <h3>{mitarbeiter.title}</h3>
                                 <p>{mitarbeiter.description}</p>
-                                <p>{mitarbeiter.location}</p>
+                                <p className="location">{mitarbeiter.location}</p>
                             </div>
                         </motion.div>
                     )
