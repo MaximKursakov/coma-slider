@@ -40,16 +40,17 @@ export function Slider() {
     console.log(position)
     console.log(sliderWidth)
     return(
-        <div className="slider-container" ref={container}>
+        <div className="slider-container">
             <button className="slide-left" onClick={slideLeft}> left </button>
             <button className="slide-right" onClick={slideRight}> right </button>
-            <div className="slider">
+            <div className="slider" ref={container}>
                 {mitarbeiterCollection.map((mitarbeiter) => {
                     return (
-                        <motion.div 
+                        <motion.div
                         animate={{
                             left: (mitarbeiter.id - position) * (sliderWidth),
                         }}
+                        transition={{type: "tween", duration: 2}}
                         key={mitarbeiter.id} 
                         className="slider-item">
                             <div className="slider-image" style={{backgroundImage: `url(/images/${mitarbeiter.image}.png)`,}}></div>
