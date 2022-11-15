@@ -7,8 +7,8 @@ body {
 
 .slider-container {
   overflow: hidden;
-  height: 70vh;
-  width: 100vw;
+  min-height: 500px;
+  height: 65vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -29,8 +29,9 @@ body {
   top: 0;
   bottom: 0;
   right: 0;
-  width: 80%;
+  width: 100%;
   display: flex;
+  align-items: flex-start;
   overflow: hidden;
 }
 
@@ -42,9 +43,14 @@ body {
 }
 
 .slider-info {
-  width: 40%;
+  width: 35%;
   height: 100%;
-  padding: 40px;
+  padding: 20px 0 0 2%;
+}
+
+.slider-info * {
+  margin: 0;
+  line-height: 1.75;
 }
 
 .slider-info h2, h3, .location {
@@ -52,9 +58,47 @@ body {
 }
 
 .slider-info h2 {
-  font-size: 3.375em;
+  font-size: 4.5rem;
+  height: 100px;
 }
 
 .slider-info h3 {
   font-size: 1.5em;
+}
+
+.description {
+  font-size: 1.3rem;
+  margin: 1.7rem 0;
+}
+
+@media only screen and (max-width: 1100px) {
+
+  .slider-image {
+    background-position: 30% 40%;
+  }
+  
+  .slider-info h2 {
+    font-size: 3rem;
+    height: 100px;
+  }
+  
+  .slider-info h3 {
+    font-size: 1em;
+  }
+  
+  .description {
+    font-size: 1rem;
+    margin: 1.7rem 0;
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  .slider-item {
+    flex-direction: column;
+    width: 100%;
+  }
+  .slider-image, .slider-info {
+    width: 80%;
+    height: 800px;
+  }
 }
