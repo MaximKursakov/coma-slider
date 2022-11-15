@@ -19,11 +19,11 @@ export function Slider() {
     }]
 
     const [position, setPosition] = useState(1)
-    const [containerWidth, setContainerWidth] = useState(0)
+    const [sliderWidth, setSliderWidth] = useState(0)
 
     const container = useRef()
     useEffect(() => {
-        setContainerWidth(container.current.offsetWidth)
+        setSliderWidth(container.current.offsetWidth)
     })
 
     function slideRight() {
@@ -38,16 +38,18 @@ export function Slider() {
         }
     }
     console.log(position)
-    console.log(containerWidth)
+    console.log(sliderWidth)
     return(
-        <div className="slider-container">
+        <div className="slider-container" ref={container}>
             <button className="slide-left" onClick={slideLeft}> left </button>
             <button className="slide-right" onClick={slideRight}> right </button>
             <div className="slider">
                 {mitarbeiterCollection.map((mitarbeiter) => {
                     return (
                         <motion.div 
-                        ref={container}
+                        animate={{
+                            left: (mitarbeiter.id - position) * (sliderWidth),
+                        }}
                         key={mitarbeiter.id} 
                         className="slider-item">
                             <div className="slider-image" style={{backgroundImage: `url(/images/${mitarbeiter.image}.png)`,}}></div>
