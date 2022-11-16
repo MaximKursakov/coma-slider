@@ -1,5 +1,6 @@
 import { motion } from "framer-motion"
 import { useEffect, useRef, useState } from "react"
+import {BsArrowLeft, BsArrowRight} from "react-icons/bs"
 
 export function Slider() {
     const mitarbeiterCollection = [{
@@ -87,14 +88,24 @@ export function Slider() {
         if (position-1  > 0) {
             setPosition(position - 1)
         }
+        else {
+            setPosition(mitarbeiterCollection.length)
+        }
     }
 
     return(
         <div className="slider-container" 
         >
-            <button className="slide-left" onClick={slideLeft}> left </button>
-            <button className="slide-right" onClick={slideRight}> right </button>
+            
             <div className="slider" ref={container}>
+            <motion.button 
+            className="slide-left" 
+            onClick={slideLeft}
+            whileHover={{background: "linear-gradient(to left, transparent 0%, black 100%)"}}> <BsArrowLeft></BsArrowLeft> </motion.button>
+            <motion.button 
+            className="slide-right" 
+            onClick={slideRight}
+            whileHover={{background: "linear-gradient(to right, transparent 0%, black 120%)"}}> <BsArrowRight></BsArrowRight> </motion.button>
                 {mitarbeiterCollection.map((mitarbeiter) => {
                     return (
                         <motion.div
@@ -126,7 +137,7 @@ export function Slider() {
                         onClick={() => setPosition(mitarbeiter.id)}
                         style={{
                             width: `${100 / mitarbeiterCollection.length}%`,
-                            backgroundColor: position === mitarbeiter.id ? "black" : "grey"}}></div>
+                            borderBottomColor:  position === mitarbeiter.id ? "black" : "#ededed"}}></div>
                     )
                 })}
             </div>
