@@ -69,10 +69,13 @@ export function Slider() {
 
     const [position, setPosition] = useState(1)
     const [sliderWidth, setSliderWidth] = useState(0)
+    const [controllerWidth, setControllerWidth] = useState(0)
 
     const container = useRef()
+    const controller = useRef()
     useEffect(() => {
         setSliderWidth(container.current.offsetWidth)
+        setControllerWidth(controller.current.offsetWidth)
     })
 
     function slideRight() {
@@ -127,7 +130,7 @@ export function Slider() {
                 })}
             </div>
             {/*  */}
-            <div className="controller-container">
+            <div className="controller-container" ref={controller}>
                 
             {mitarbeiterCollection.map((mitarbeiter) => {
                     return(
@@ -136,11 +139,16 @@ export function Slider() {
                         className="slider-controll" 
                         onClick={() => setPosition(mitarbeiter.id)}
                         style={{
-                            width: `${100 / mitarbeiterCollection.length}%`,
-                            borderBottomColor:  position === mitarbeiter.id ? "black" : "#ededed"}}></div>
+                            width: `${100 / mitarbeiterCollection.length}%`}}></div>
                     )
                 })}
+                <motion.div 
+                className="controll-active"
+                style={{
+                    width: `${100 / mitarbeiterCollection.length}%`,}}
+                animate={{left: (controllerWidth/mitarbeiterCollection.length) * (position - 1)}}></motion.div>
             </div>
         </div>
     )
 }
+
