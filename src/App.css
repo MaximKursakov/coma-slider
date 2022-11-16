@@ -5,6 +5,19 @@ body {
   font-family: Mulish, sans-serif;
 }
 
+.header {
+  text-align: center;
+  width: 50vw;
+}
+
+.header p {
+  font-size: 1.3rem;
+}
+
+.header h1 {
+  font-size: 3rem;
+}
+
 .slider-container {
   overflow: hidden;
   display: flex;
