@@ -127,7 +127,7 @@ export function Slider() {
                         transition={{ease:  "easeInOut", duration: .5}}
                         key={mitarbeiter.id} 
                         className="slider-item">
-                            <div className="slider-image" style={{backgroundImage: `url(/images/${mitarbeiter.image}.png)`,}}></div>
+                            <div className="slider-image" style={{backgroundImage: `url(./images/${mitarbeiter.image}.png)`,}}></div>
                             <div className="slider-info">
                                 <h2>{mitarbeiter.name}</h2>
                                 <h3>{mitarbeiter.title}</h3>
