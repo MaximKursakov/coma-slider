@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/coma-slider/static/css/main.196fab8f.css",
-    "main.js": "/coma-slider/static/js/main.314cb2fc.js",
+    "main.js": "/coma-slider/static/js/main.bd2f3ca7.js",
     "index.html": "/coma-slider/index.html",
     "main.196fab8f.css.map": "/coma-slider/static/css/main.196fab8f.css.map",
-    "main.314cb2fc.js.map": "/coma-slider/static/js/main.314cb2fc.js.map"
+    "main.bd2f3ca7.js.map": "/coma-slider/static/js/main.bd2f3ca7.js.map"
   },
   "entrypoints": [
     "static/css/main.196fab8f.css",
-    "static/js/main.314cb2fc.js"
+    "static/js/main.bd2f3ca7.js"
   ]
 }
