@@ -76,13 +76,23 @@ export function Slider() {
     const [position, setPosition] = useState(1)
     const [sliderWidth, setSliderWidth] = useState(0)
     const [controllerWidth, setControllerWidth] = useState(0)
+    const [windowWidth, setWindowWidth] = useState()
+    function getResizedWindow () {
+        setWindowWidth(window.innerWidth)
+    }
+    useEffect(() => {
+        window.addEventListener('resize', getResizedWindow);
+        return () => {
+            window.removeEventListener('resize', getResizedWindow);
+          }
+      }, [])
 
     const container = useRef()
     const controller = useRef()
     useEffect(() => {
         setSliderWidth(container.current.offsetWidth)
         setControllerWidth(controller.current.offsetWidth)
-    })
+    }, [windowWidth])
 
     function slideRight() {
         if (position < mitarbeiterCollection.length ) {
@@ -107,7 +117,7 @@ export function Slider() {
         >
             <div className="header">
                 <h1>Coma ag Slider</h1>
-                <p>Hey! Ich hab mir mal die Freiheit genommen schonmal einen fatalen Bug (s.slide 2) zu fixen und eine Animation für die Scrollleiste unter des Sliders hinzuzufügen :) <br></br> (kleiner bug: wenn man die Screenwidth ändert muss man erst die Seite neu Laden damit sie wieder responsive wird)</p>
+                <p>Hey! Ich hab mir mal die Freiheit genommen schonmal einen fatalen Bug (s.slide 2) zu fixen und eine Animation für die Scrollleiste unter des Sliders hinzuzufügen :)</p>
             </div>
             <div className="slider" ref={container}>
             <motion.button 

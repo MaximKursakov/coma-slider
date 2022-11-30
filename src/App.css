@@ -155,6 +155,7 @@ body {
   .slider-item {
     flex-direction: column;
     width: 100%;
+    align-items: center;
   }
   .slider-image, .slider-info {
     width: 80%;
